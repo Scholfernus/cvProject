@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,13 +28,28 @@ public class ExperienceController {
         model.addAttribute("experiences", experienceList);
         return "experience/experience";
     }
-
-    @PostMapping("/add")
-    public RedirectView postAddExperience(@RequestBody ExperienceModel addExperienceModel) {
-        expService.addNewExperience(addExperienceModel);
-        return new RedirectView("/experience"); // Redirect to the list view
+    @GetMapping("/2")
+    public String getAllExperiences(Model model) {
+        List<ExperienceModel> experienceList = expService.getExperienceList();
+        model.addAttribute("experiences", experienceList);
+        return "experience/exp2";
     }
 
+//    @PostMapping("/add")
+//    public RedirectView postAddExperience(@RequestBody ExperienceModel addExperienceModel) {
+//        expService.addNewExperience(addExperienceModel);
+//        return new RedirectView("experience/experience"); // Redirect to the list view
+//    }
+    @PostMapping("/add")
+    public String postAddExperience(@ModelAttribute("experienceModel") ExperienceModel experienceModel){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime startDate = LocalDate.parse(experienceModel.getStartDate(), formatter).atStartOfDay();
+        LocalDateTime endDate = LocalDate.parse(experienceModel.getEndDate(), formatter).atStartOfDay();
+        experienceModel.setStartDate(String.valueOf(startDate));
+        experienceModel.setEndDate(String.valueOf(endDate));
+        expService.addNewExperience(experienceModel);
+        return "redirect:/experience";
+    }
 
     @PostMapping("/del/{id}")
     public RedirectView postDeleteExperienceById(@PathVariable("id") Long id) {
@@ -52,8 +70,8 @@ public class ExperienceController {
             model.addAttribute("experience", experienceById);
             return "experience/edit";
         } else return "error";
-
     }
+
     @GetMapping("/addExperience")
     public String showAddForm() {
         return "experience/addExperience";

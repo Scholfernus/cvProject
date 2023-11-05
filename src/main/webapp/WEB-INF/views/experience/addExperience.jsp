@@ -12,32 +12,33 @@
 
             <!-- Form for adding new experience -->
             <form action="${pageContext.request.contextPath}/experience/add" method="post" class="my-5">
-                <div class="form-group">
+            <div class="form-group">
                     <label for="title">Tytuł:</label>
                     <input type="text" id="title" name="title" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="subtitle">Podtytuł:</label>
-                    <input type="text" id="subtitle" name="subtitle" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Opis:</label>
-                    <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="start">Data rozpoczęcia:</label>
-                    <input type="date" id="start" name="start" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="end">Data zakończenia:</label>
-                    <input type="date" id="end" name="end" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Dodaj doświadczenie</button>
-            </form>
+                <label for="subtitle">Podtytuł:</label>
+                <input type="text" id="subtitle" name="subtitle" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Opis:</label>
+            <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Data rozpoczęcia:</label>
+            <input type="date" id="startDate" name="startDate" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">Data zakończenia:</label>
+            <input type="date" id="endDate" name="endDate" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Dodaj doświadczenie</button>
+        </form>
 
 
 
-            <!-- Existing experience entries -->
+
+        <!-- Existing experience entries -->
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <!-- Add your existing experience entries here -->
             </div>
@@ -51,30 +52,3 @@
 </body>
 </html>
 
-
-
-<%--            <!-- Form for adding new experience -->--%>
-<%--            <form action="${pageContext.request.contextPath}/experience/add" method="post">--%>
-<%--                <button type="submit">Dodaj doświadczenie</button>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="title">Tytuł:</label>--%>
-<%--                    <input type="text" id="title" name="title" required>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="subtitle">Podtytuł:</label>--%>
-<%--                    <input type="text" id="subtitle" name="subtitle" required>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="description">Opis:</label>--%>
-<%--                    <textarea id="description" name="description" required></textarea>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="start">Data rozpoczęcia:</label>--%>
-<%--                    <input type="date" id="start" name="start" required>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="end">Data zakończenia:</label>--%>
-<%--                    <input type="date" id="end" name="end" required>--%>
-<%--                </div>--%>
-<%--                <button type="submit">Dodaj doświadczenie</button>--%>
-<%--            </form>--%>

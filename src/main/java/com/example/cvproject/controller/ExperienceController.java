@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -42,13 +43,17 @@ public class ExperienceController {
 //    }
     @PostMapping("/add")
     public String postAddExperience(@ModelAttribute("experienceModel") ExperienceModel experienceModel){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime startDate = LocalDate.parse(experienceModel.getStartDate(), formatter).atStartOfDay();
-        LocalDateTime endDate = LocalDate.parse(experienceModel.getEndDate(), formatter).atStartOfDay();
-        experienceModel.setStartDate(String.valueOf(startDate));
-        experienceModel.setEndDate(String.valueOf(endDate));
-        expService.addNewExperience(experienceModel);
-        return "redirect:/experience";
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime startDate = LocalDate.parse(experienceModel.getStartDate(), formatter).atStartOfDay();
+            LocalDateTime endDate = LocalDate.parse(experienceModel.getEndDate(), formatter).atStartOfDay();
+            experienceModel.setStartDate(String.valueOf(startDate));
+            experienceModel.setEndDate(String.valueOf(endDate));
+            expService.addNewExperience(experienceModel);
+        }catch (DateTimeException e){
+            return "redirect:/experience"; // Przekierowanie na stronę listy doświadczeń
+        }
+        return "experience/addExperience";
     }
 
     @PostMapping("/del/{id}")
@@ -68,7 +73,7 @@ public class ExperienceController {
         Optional<ExperienceModel> experienceById = expService.getExperienceById(id);
         if (experienceById.isPresent()) {
             model.addAttribute("experience", experienceById);
-            return "experience/edit";
+            return "experience/editExperience";
         } else return "error";
     }
 

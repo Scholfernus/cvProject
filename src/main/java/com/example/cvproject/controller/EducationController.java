@@ -27,6 +27,11 @@ private final EducationService educationService;
         model.addAttribute("education",educationList);
         return "education/education";
     }
+    @GetMapping("/add")
+    public String getAddEducationForm(Model model){
+        model.addAttribute("educationModel", model);
+        return "education/addEducation";
+    }
     @PostMapping("/add")
     public String postAddEducation(EducationModel educationModel){
         educationService.addNewEducation(educationModel);

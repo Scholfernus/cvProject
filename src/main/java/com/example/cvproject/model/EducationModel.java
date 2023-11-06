@@ -16,5 +16,5 @@ public class EducationModel {
     private String education;
     private String technology;
     private String description;
-    private Double rank;
+    private Double ranking;
 }

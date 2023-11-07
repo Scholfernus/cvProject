@@ -39,6 +39,14 @@
                     <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="uzupełnij tytuł">
                 </div>
             </div>
+            <c:forEach items="${educationList}" var="education">
+                <div class="education-item">
+                    <p>Edukacja: ${education.education}</p>
+                    <p>Technologia: ${education.technology}</p>
+                    <p>Opis: ${education.description}</p>
+                    <p>Ranking: ${education.ranking}</p>
+                </div>
+            </c:forEach>
 
             <div class="form-group row">
                 <label class="col-2" for="exampleFormControlInput2">Podtytuł</label>

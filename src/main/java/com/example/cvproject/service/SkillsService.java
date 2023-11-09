@@ -13,4 +13,8 @@ public class SkillsService {
     public void addSkillToList(SkillsModel model) {
         skillsRepository.save(model);
     }
+
+    public void deleteById(Long id) {
+    skillsRepository.deleteById(id);
+    }
 }

@@ -13,19 +13,28 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @RequestMapping(value = "/skills")
 public class SkillsController {
-private SkillsService skillsService;
+    private SkillsService skillsService;
+
     @GetMapping
-    public String getSkills(){
+    public String getSkills() {
         return "skills/skills";
     }
+
     @PostMapping("/addSkill")
-    public String addSkill(SkillsModel model){
-    skillsService.addSkillToList(model);
-    return "skills/skills";
+    public String addSkill(SkillsModel model) {
+        skillsService.addSkillToList(model);
+        return "skills/skills";
     }
+
     @PostMapping("/del/{id}")
-    public RedirectView deleteSkillById(@PathVariable("id") Long id){
+    public RedirectView deleteSkillById(@PathVariable("id") Long id) {
         skillsService.deleteById(id);
+        return new RedirectView("skills/skills");
+    }
+
+    @PostMapping("/edit/{id}")
+    public RedirectView editSkillById(@PathVariable("id") Long id, SkillsModel model) {
+        skillsService.editSkillById(model, id);
         return new RedirectView("skills/skills");
     }
 }

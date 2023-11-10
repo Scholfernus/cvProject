@@ -2,7 +2,9 @@ package com.example.cvproject.service;
 
 import com.example.cvproject.model.SkillsModel;
 import com.example.cvproject.repository.SkillsRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SkillsService {
     private final SkillsRepository skillsRepository;
 
@@ -16,5 +18,10 @@ public class SkillsService {
 
     public void deleteById(Long id) {
     skillsRepository.deleteById(id);
+    }
+
+    public void editSkillById(SkillsModel model, Long id) {
+        model.setId(id);
+        skillsRepository.save(model);
     }
 }

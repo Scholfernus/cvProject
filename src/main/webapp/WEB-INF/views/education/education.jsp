@@ -29,7 +29,7 @@
             </div>
         </div>
     </section>
-
+    <h5> <b>Poniżej możesz dodać i uzupełnić swoją <em>edukację.</em></b></h5>
 
     <div class="container">
         <form method="post" action='<c:url value="#"/>'>

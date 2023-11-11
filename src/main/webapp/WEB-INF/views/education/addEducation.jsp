@@ -26,7 +26,7 @@
         <button type="submit" class="btn btn-primary">Dodaj edukację</button>
     </form>
 
-
+<h5> <b>Poniżej możesz dodać i uzupełnić swoją <em>edukację.</em></b></h5>
 
 
     <div class="container">

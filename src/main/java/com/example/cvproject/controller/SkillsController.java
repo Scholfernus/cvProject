@@ -25,6 +25,11 @@ public class SkillsController {
         skillsService.addSkillToList(model);
         return "skills/skills";
     }
+    @GetMapping("/add")
+    public String getAddSkill(){
+        skillsService.getAddSkill();
+        return "skills/skills";
+    }
 
     @PostMapping("/del/{id}")
     public RedirectView deleteSkillById(@PathVariable("id") Long id) {

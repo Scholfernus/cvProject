@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </section>
-            <form action="addSkills.jsp" method="post">
+            <form action="/skills/addSkill.jsp" method="post">
                 <div class="form-group">
                     <label for="nazwa">Nazwa:</label>
                     <input type="text" class="form-control" id="nazwa" name="nazwa" required>

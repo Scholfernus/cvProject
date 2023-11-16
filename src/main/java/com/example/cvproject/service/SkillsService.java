@@ -24,4 +24,8 @@ public class SkillsService {
         model.setId(id);
         skillsRepository.save(model);
     }
+
+    public void getAddSkill() {
+        skillsRepository.findAll();
+    }
 }

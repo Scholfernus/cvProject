@@ -1,7 +1,6 @@
 package com.example.cvproject.controller;
 
 import com.example.cvproject.model.SkillsModel;
-import com.example.cvproject.repository.SkillsRepository;
 import com.example.cvproject.service.SkillsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,7 @@ public class SkillsController {
         skillsService.addSkillToList(model);
         return "skills/skills";
     }
-    @GetMapping("/add")
+    @GetMapping("/addSkill")
     public String getAddSkill(){
         skillsService.getAddSkill();
         return "skills/skills";

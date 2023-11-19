@@ -1,4 +1,4 @@
-package com.example.cvproject.DummyLogger;
+package com.example.cvproject.DummyLogger.DummyLogger1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

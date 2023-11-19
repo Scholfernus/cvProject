@@ -1,4 +1,4 @@
-package com.example.cvproject.DummyLogger;
+package com.example.cvproject.DummyLogger.DummyLogger1;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommandLineRunnerWithFieldInjection implements CommandLineRunner {
     @Autowired
-    private DummyLogger dummyLogger;
+    private DummyLogger1 dummyLogger;
     @Override
     public void run(String... args) throws Exception {
     dummyLogger.sayHello();

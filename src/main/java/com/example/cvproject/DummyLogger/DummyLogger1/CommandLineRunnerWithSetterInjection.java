@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommandLineRunnerWithSetterInjection implements CommandLineRunner {
 
-    private DummyLogger dummyLogger;
+    private DummyLogger1 dummyLogger;
 
     @Override
     public void run(String... args) throws Exception {
@@ -15,7 +15,7 @@ public class CommandLineRunnerWithSetterInjection implements CommandLineRunner {
     }
 
     @Autowired
-    public void setDummyLogger(DummyLogger dummyLogger) {
+    public void setDummyLogger(DummyLogger1 dummyLogger) {
         this.dummyLogger = dummyLogger;
     }
 }

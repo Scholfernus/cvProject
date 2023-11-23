@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class CommandLineRunnerWithConstructorInjection implements CommandLineRunner {
-    private final DummyLogger logger;
+    private final DummyLogger1 logger;
     @Override
     public void run(String... args) throws Exception {
      logger.sayHello();

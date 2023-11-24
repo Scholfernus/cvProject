@@ -7,17 +7,16 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Order(3)
+@Order(2)
 @Component
-public class PrintConstructorInjectionCommand implements CommandLineRunner {
-    private String someProperty;
-
-    public PrintConstructorInjectionCommand(@Value("#{${valuesMap}.key1}") String someProperty) {
-        this.someProperty = someProperty;
-    }
-
+public class PrintValueCommand implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        log.info("{} {}",getClass(),someProperty);
+
     }
+    @Value("#{systemProperties['priority]}")
+    private String spellValue;
+
+    @Value("#{numbers.number}")
+    private Integer someBeanValue;
 }

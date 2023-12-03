@@ -8,6 +8,6 @@ import java.util.Map;
 @Data
 @Builder
 public class NamedPairs {
-    private String name;
-    private Map<String, String> pairs;
+    private String firstName;
+    private Map<String, String> twoPairs;
 }

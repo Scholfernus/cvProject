@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
+
 @Slf4j
 @RestController
 @RequestMapping("/api")
@@ -14,7 +17,8 @@ public class PairsController {
         log.info(name);
         return NamedPairs
                 .builder()
-                .name(name)
+                .firstName(name)
+                .twoPairs(Map.of("1","test1"))
                 .build();
     }
 

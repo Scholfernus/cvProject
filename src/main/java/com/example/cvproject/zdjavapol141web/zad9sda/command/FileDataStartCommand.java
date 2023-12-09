@@ -1,6 +1,6 @@
 package com.example.cvproject.zdjavapol141web.zad9sda.command;
 
-import com.example.cvproject.zdjavapol141web.zad9sda.FileData;
+import com.example.cvproject.zdjavapol141web.zad9sda.model.FileData;
 import com.example.cvproject.zdjavapol141web.zad9sda.repository.FileDataRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
